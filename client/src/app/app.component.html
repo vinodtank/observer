@@ -1,0 +1,21 @@
+<h1>Realtime Items</h1>
+
+<div>
+    <input type="text" [(ngModel)]="newItem" placeholder="New Item Name">
+    <button (click)="addItem()">Add Item</button>
+</div>
+
+<div>
+    <input type="text" [(ngModel)]="updateItemId" placeholder="Item ID to Update">
+    <input type="text" [(ngModel)]="updateItemName" placeholder="New Name">
+    <button (click)="updateItem()">Update Item</button>
+</div>
+
+<ul>
+  @for (item of items; track $index) {
+    <li>
+        {{ item.name }} ({{ item._id }})
+        <button (click)="deleteItem(item._id)">Delete</button>
+    </li>
+  }
+</ul>
